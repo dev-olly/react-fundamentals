@@ -2,6 +2,8 @@
 <!-- http://localhost:3000/isolated/exercise/02.html -->
 
 <body>
+  <script src="https://unpkg.com/react@18.0.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.development.js"></script>
   <div id="root"></div>
 
   <!-- 🐨 add React and ReactDOM on the page.
@@ -21,6 +23,15 @@
     element.className = 'container' // 💰 in React, this is also called the "className" prop
     // This is similar to ReactDOM.createRoot().render()
     rootElement.append(element)
+
+    const helloSpan = React.createElement('span', {children: 'Hello'})
+    const worldSpan = React.createElement('span', {children: ' world'})
+    const elemProps = {children: [helloSpan, worldSpan], className: 'container'}
+    const elemType = 'h1'
+    const reactElem = React.createElement(elemType, elemProps)
+    const root = ReactDOM.createRoot(rootElement)
+
+    root.render(reactElem)
 
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
